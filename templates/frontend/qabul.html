@@ -1,0 +1,18 @@
+{% extends "./base.html" %}
+{% load static %}
+{% load my_tags %}
+
+{% block title %}{% call_get_text "Qabul" language True%}{% endblock %}
+
+{% block body %}
+
+  {% include "./header.html" %}
+
+  <div class="containerr">
+    <h4>{% call_get_text "QabulEnd" language True%}</h4>
+  </div>
+  {% include "./footer.html" %}
+<!-- Java script-->
+<script src="{% static 'js/core.min.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock %}

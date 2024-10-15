@@ -1,0 +1,45 @@
+{% extends "./frontend/base.html" %}
+{% load static %}
+{% load my_tags %}
+
+{% block title %}404{% endblock %}
+
+{% block body %}
+
+    <div class="preloader"> 
+      <div class="preloader-body">
+        <div class="cssload-container">
+          <div class="cssload-speeding-wheel"></div>
+        </div>
+        <p>Loading...</p>
+      </div>
+    </div>
+    <!-- Page-->
+    <div class="page text-center">
+      <!-- Page Content-->
+      <section class="section page-content section-cover section-30 bg-default">
+        <div><a href="/{{ language }}"><img src="{% static 'images/logo.png' %}" width="110" height="110" alt=""></a></div>
+        <div class="section-xxs">
+          <div class="container">
+            <div>
+              <h1 class="font-default"><span class="big text-light fw-bold">404</span></h1>
+            </div>
+            <div class="offset-top-10">
+              <h2 class="fw-bold">{% call_get_text "404" language True%}</h2>
+            </div>
+            <div class="offset-top-15 offset-lg-top-30">
+              <hr class="divider bg-madison">
+            </div>
+            <div class="offset-top-15 offset-lg-top-30">
+              <div class="group group-xl"><a class="btn button-primary btn-icon btn-icon btn-icon-left" href="/{{language}}"><span class="icon fa fa-arrow-left"></span><span>{% call_get_text "back" language True%}</span></a></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- Global Mailform Output-->
+    <div class="snackbars" id="form-output-global"></div>
+    <!-- Java script-->
+    <script src="{% static 'js/core.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+{% endblock %}

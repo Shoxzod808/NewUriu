@@ -1,0 +1,76 @@
+{% extends "./base.html" %}
+{% load static %}
+{% load my_tags %}
+
+{% block title %}{% call_get_text "Meyoriy hujjatlar" language True%}{% endblock %}
+
+{% block body %}
+
+{% include "./header.html" %}
+
+<section class="section section-xl bg-default">
+    <div class="container">
+      <div class="tabs-custom tabs-vertical tabs-line tabs-line-1" id="tabs-7">
+        <!--Nav tabs-->
+        <ul class="nav nav-tabs">
+          {% for data in datas %}
+              <li class="nav-item" role="presentation">
+                  <a class="nav-link" href="#tabs-{{ data.id }}" data-bs-toggle="tab">
+                    {% if language == 'en' %}
+                      {{ data.title_uz }}
+                    {% elif language == 'ru' %}
+                      {{ data.title_ru }}
+                    {% else %}
+                      {{ data.title_uz }}
+                    {% endif %}
+                  </a>
+              </li>
+          {% endfor %}
+        </ul>
+
+          <!--Tab panes-->
+          
+        <div class="tab-content inset-lg-left-60">
+          {% for data in datas %}
+          <div class="tab-pane fade" id="tabs-{{ data.id }}">
+            <h2 class="fw-bold">
+              {% if language == 'en' %}
+                {{ data.title_uz }}
+              {% elif language == 'ru' %}
+                {{ data.title_ru }}
+              {% else %}
+                {{ data.title_uz }}
+              {% endif %}
+            </h2>
+            <div class="hr divider bg-madison divider-md-0"></div>
+            <div class="">
+              {% if language == 'en' %}
+                {{ data.body_uz|safe }}
+              {% elif language == 'ru' %}
+                {{ data.body_ru|safe }}
+              {% else %}
+                {{ data.body_uz|safe }}
+              {% endif %}
+            </div>
+            <div class="offset-lg-top-30">
+              
+              {% for file in data|call_get_document %}
+                  <a href="{{ file.file.url }}"><i class="fa fa-download" aria-hidden="true">{{ file.name }}</i></a>
+                  <br>    
+              {% endfor %}
+
+            </div>
+          </div>
+          {% endfor %} 
+        </div>   
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include "./footer.html" %}
+
+<!-- Java script-->
+<script src="{% static 'js/core.min.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock %}

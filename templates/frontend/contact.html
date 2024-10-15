@@ -1,0 +1,99 @@
+
+{% extends "./base.html" %}
+{% load static %}
+{% load my_tags %}
+
+{% block title %}{% call_get_text "contact" language True%}{% endblock %}
+
+{% block body %}
+      {% include "./header.html" %}
+      <section class="section mt-3 mb-5 bg-default">
+        <div class="container center">
+          <h2 class="fw-bold">{% call_get_text "Get in Touch" language True%}</h2>
+          <hr class="divider bg-madison">
+          <div class="row row-50 justify-content-sm-center">
+            <div class="col-sm-10 col-lg-8 text-lg-start">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6380.52755843208!2d60.60032661091538!3d41.56595516206249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41dfcfa155e57805%3A0x42f1e95b7cdf7bd2!2sUrganch%20innovatsion%20universiteti!5e0!3m2!1sru!2s!4v1710843889871!5m2!1sru!2s" width="100%" height="90%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+             
+              
+              
+            </div>
+            <div class="col-sm-10 col-lg-4 text-start">
+              <div class="inset-lg-left-30">
+                <h6 class="fw-bold">{% call_get_text "Socials" language True%}</h6>
+                <div class="hr bg-gray-light offset-top-10"></div>
+                <div class="offset-top-15 text-start">
+                  <ul class="list-inline list-inline-xs list-inline-madison">
+                    <li><a class="icon icon-xxs fa fa-facebook icon-circle icon-gray-light-filled" href="https://www.facebook.com/profile.php?id=100091826560046"></a></li>
+                    <li><a class="icon icon-xxs fa fa-youtube icon-circle icon-gray-light-filled" href="https://www.youtube.com/@uriu/about"></a></li>
+                    <li><a class="icon icon-xxs fa fa-telegram icon-circle icon-gray-light-filled" href="https://t.me/urganch_iu"></a></li>
+                    <li><a class="icon icon-xxs fa fa-instagram icon-circle icon-gray-light-filled" href="http://instagram.com/urganch_innovatsion_university"></a></li>
+                  </ul>
+                </div>
+                <div class="offset-top-30 offset-md-top-60">
+                  <h6 class="fw-bold">{% call_get_text "Phones" language True%}</h6>
+                  <div>
+                    <div class="hr bg-gray-light offset-top-10"></div>
+                  </div>
+                  <div class="offset-top-15">
+                    <ul class="list list-unstyled">
+                       
+                      <li><span class="icon icon-xs text-madison mdi mdi-phone align-middle"></span><a class="text-dark" href="tel:+998904362022">90 436-20-22</a></li>
+                      <li><span class="icon icon-xs text-madison mdi mdi-phone align-middle"></span><a class="d-block d-lg-inline-block text-dark" href="tel:+998914362022">91 436-20-22</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="offset-top-30 offset-md-top-60">
+                  <h6 class="fw-bold">{% call_get_text "email" language True%}</h6>
+                  <div>
+                    <div class="hr bg-gray-light offset-top-10"></div>
+                  </div>
+                  <div class="offset-top-15">
+                    <ul class="list list-unstyled">
+                      <li><span class="icon icon-xs text-madison mdi mdi-email-outline align-middle"></span><a class="align-middle inset-left-10" href="mailto:info@demolink.org">info@uriu.uz</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="offset-top-30 offset-md-top-60">
+                  <h6 class="fw-bold">{% call_get_text "Address" language True%}</h6>
+                  <div>
+                    <div class="hr bg-gray-light offset-top-10"></div>
+                  </div>
+                  <div class="offset-top-15">
+                    <div class="unit flex-row unit-spacing-xs">
+                      <div class="unit-left"><span class="icon icon-xs mdi mdi-map-marker text-madison"></span></div>
+                      <div class="unit-body">
+                        <div class="unit-body text-start"><a class="text-dark" href="https://www.google.com/maps?ll=41.570595,60.614984&z=14&t=m&hl=ru&gl=US&mapclient=embed&cid=4823893255036828626">{% call_get_text 'address' language True%}</a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="offset-top-30 offset-md-top-65">
+                  <h6 class="fw-bold">{% call_get_text "Opening Hours" language True%}</h6>
+                  <div>
+                    <div class="hr bg-gray-light offset-top-10"></div>
+                  </div>
+                  <div class="offset-top-15">
+                    <div class="unit flex-row unit-spacing-xs">
+                      <div class="unit-left"><span class="icon icon-xs mdi mdi-calendar-clock text-madison"></span></div>
+                      <div class="unit-body">
+                        <div>
+                          <p>{% call_get_text "Mon-: 9:00am-6:00pm" language True%}</p>
+                        </div>
+                        <div>
+                          <p>{% call_get_text "Sun-Sat: Closed" language True%}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>     
+
+<!-- Java script-->
+<script src="{% static 'js/core.min.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock %}

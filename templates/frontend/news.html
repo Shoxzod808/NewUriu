@@ -1,0 +1,79 @@
+{% extends "./base.html" %}
+{% load static %}
+{% load my_tags %}
+
+{% block title %}{% call_get_text "News" language True%}{% endblock %}
+
+{% block body %}
+
+{% include "./header.html" %}
+  <section class="section section-xl bg-catskill">
+    <div class="container">
+      <h2 class="fw-bold">{% call_get_text "News" language True%}</h2>
+      <hr class="divider bg-madison">
+      <div class="row row-30 offset-top-60 text-start justify-content-sm-center">
+          {% for news_item in news %}
+          <div class="col-md-6 col-lg-4">
+              <article class="post-news">
+                  <a href="/{{language}}/news/{{news_item.id}}"><img class="img-responsive" src="{{ news_item.photo.url }}" width="370" height="240" alt=""></a>
+                  <div class="post-news-body">
+                    {% if language == 'en' %}
+                        <h6><a href="/{{language}}/news/{{news_item.id}}">{{ news_item.title_en }}</a></h6>
+                    {% elif language == 'ru' %}
+                        <h6><a href="/{{language}}/news/{{news_item.id}}">{{ news_item.title_ru }}</a></h6>
+                    {% else %}
+                        <h6><a href="/{{language}}/news/{{news_item.id}}">{{ news_item.title_uz }}</a></h6>
+                    {% endif %}
+                      <div class="offset-top-20">
+                          <p>{{ news_item.text|safe }}</p>
+                      </div>
+                      <div class="post-news-meta offset-top-20">
+                          <span class="icon icon-xs mdi mdi-calendar-clock align-middle text-madison"></span>
+                          <span class="align-middle inset-left-10 fst-italic text-black">{{ news_item.date|date:"H:i d/m/Y" }}</span>
+                      </div>
+                  </div>
+              </article>
+          </div>
+          {% endfor %}
+          
+      </div>
+      <!-- <div class="offset-top-50"><a class="btn button-primary" href="news">{% call_get_text "View All News Posts" language True %}</a></div> -->
+    </div>
+      <div class="offset-top-60 text-lg-start ">
+        <!--Bootstrap Pagination-->
+        <nav aria-label="Page navigation " class="nav-pagination">
+          <ul class="pagination pagination-custom " >
+            {% if prew1 != None%}
+            <li class="page-item"><a class="page-link" href="/{{language}}/news-{{prew1}}"><</a></li>
+            {% endif %}
+            {% if prew2 != None%}
+              <li class="page-item"><a class="page-link" href="/{{language}}/news-{{prew2}}">{{prew2}}</a></li>
+            {% endif %}
+            {% if prew1 != None%}
+            <li class="page-item"><a class="page-link" href="/{{language}}/news-{{prew1}}">{{prew1}}</a></li>
+            {% endif %}
+            {% if current != None%}
+            <li class="page-item active"><span class="page-link">{{current}}</span></li>
+            {% endif %}
+            {% if next1 != None%}
+            <li class="page-item"><a class="page-link" href="/{{language}}/news-{{next1}}">{{next1}}</a></li>
+            {% endif %}
+            {% if next2 != None%}
+            <li class="page-item"><a class="page-link" href="/{{language}}/news-{{next2}}">{{next2}}</a></li>
+            {% endif %}
+            {% if next1 != None%}
+            <li class="page-item"><a class="page-link" href="/{{language}}/news-{{next1}}">></a></li>
+            {% endif %}
+          
+          </ul>
+        </nav>
+      </div>
+    
+  </section>
+
+{% include "./footer.html" %}
+
+<!-- Java script-->
+<script src="{% static 'js/core.min.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock %}
