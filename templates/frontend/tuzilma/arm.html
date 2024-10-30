@@ -1,4 +1,4 @@
-{% extends "./base.html" %}
+{% extends "./../base.html" %}
 {% load static %}
 {% load my_tags %}
 
@@ -6,7 +6,7 @@
 
 {% block body %}
 
-{% include "./header.html" %}
+{% include "./../header.html" %}
 <section class="section section-xl bg-default">
     <div class="container">
       <h2 class="fw-bold">{% call_get_text "Axborot resurs markazi" language True%}</h2>
@@ -45,7 +45,7 @@
       </div>
     </div>
   </section>
-{% include "./footer.html" %}
+{% include "./../footer.html" %}
 
 <!-- Java script-->
 <script src="{% static 'js/core.min.js' %}"></script>

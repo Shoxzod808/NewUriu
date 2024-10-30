@@ -2,7 +2,7 @@
 {% load static %}
 {% load my_tags %}
 
-{% block title %}{% call_get_text "Markazlar va bo'limlar" language True%}{% endblock %}
+{% block title %}{% call_get_text "Tuzilma" language True%}{% endblock %}
 
 {% block body %}
 
@@ -10,27 +10,14 @@
 <section class="section section-xl bg-catskill">
     <div class="container">
         <div class="row row-85 justify-content-sm-center">
-            {% comment %} <div class="col-lg-4 text-start col-sm-8">
-                <aside class="inset-lg-left-30">
-                    <h6 class="fw-bold">{% call_get_text tuzilma.name language True%}</h6>
-                    <div class="text-subline"></div>
-                    <div class="offset-top-20">
-                        <ul class="list list-marked list-marked-primary">
-                            {% for button in tuzilma.button_set.all %}
-                                <li><a href="/{{language}}/{{ button.link }}">{% call_get_text button.name language True%}</a></li>
-                            {% endfor %}
-                            
-                        </ul>
-                    </div>
-                </aside>
-            </div> {% endcomment %}
+            
             <div class="col-lg-8 row-30">
                 <h2>{% call_get_text "Markazlar" language True%}</h2>
                 <hr class="divider bg-madison">
             </div>
             <div class="mb-3">
                 <div class="group group-xl">
-                    <a class="btn btn-icon btn-icon-right button-default w-100" href="/{{language}}/markazlar_va_bolimlar/arm">
+                    <a class="btn btn-icon btn-icon-right button-default w-100" href="/{{language}}/tuzilma/arm">
                         <span class="icon fa fa-arrow-right"></span>
                         <span>{% call_get_text "Axborot resurs markazi" language True%}</span>
                     </a>
@@ -41,7 +28,7 @@
             <hr class="divider bg-madison">
             <div class="mb-3">
                 <div class="group group-xl">
-                    <a class="btn btn-icon btn-icon-right button-default w-100" href="/{{language}}/markazlar_va_bolimlar/rtt">
+                    <a class="btn btn-icon btn-icon-right button-default w-100" href="/{{language}}/tuzilma/rtt">
                         <span class="icon fa fa-arrow-right"></span>
                         <span>{% call_get_text "Raqamli ta'lim texnologiyalar bo'limi" language True%}</span>
                     </a>
@@ -50,7 +37,7 @@
 
             <div class="mb-3">
                 <div class="group group-xl">
-                    <a class="btn btn-icon btn-icon-right button-default w-100" href="/{{language}}/markazlar_va_bolimlar/oub">
+                    <a class="btn btn-icon btn-icon-right button-default w-100" href="/{{language}}/tuzilma/oub">
                         <span class="icon fa fa-arrow-right"></span>
                         <span>{% call_get_text "O'quv-uslubiy boshqarma" language True%}</span>
                     </a>

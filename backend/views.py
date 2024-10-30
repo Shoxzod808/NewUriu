@@ -11,7 +11,7 @@ from django.contrib.auth.decorators import login_required
 #from .replace_tiems_in_word import replace_text_in_docx_ariza
 
 EMPLOYEE_TAG = {
-    'arm': [48, 17],
+    'arm': [17],
     'rtt': [10, 1, 3, 14, 50],
     'oub': [11, 37, 39],
     'office': [7],
@@ -85,46 +85,6 @@ def about(request, language='uz'):
         return render(request, '404.html', context)
 
 
-def rektor_tabrigi(request, language='uz'):
-    categories = Category.objects.all()
-    context = {
-            'categories': categories,
-            'language': 'uz',
-        }
-
-    context['request'] = request
-    context['language'] = language
-    path = request.get_full_path()
-    if path.split('/')[1] in ['ru', 'uz', 'en']:
-        path = path[3:]
-    path = path.rstrip('/')
-    context['path'] = path
-    if language in ['ru', 'en', 'uz']:
-        return render(request, 'frontend/rektor_tabrigi.html', context)
-    else:
-        context['language'] = 'uz'
-        return render(request, '404.html', context)
-
-def kengashlar(request, language='uz'):
-    categories = Category.objects.all()
-    context = {
-            'categories': categories,
-            'language': 'uz',
-        }
-
-    context['request'] = request
-    context['language'] = language
-    path = request.get_full_path()
-    if path.split('/')[1] in ['ru', 'uz', 'en']:
-        path = path[3:]
-    path = path.rstrip('/')
-    context['path'] = path
-    if language in ['ru', 'en', 'uz']:
-        return render(request, 'frontend/kengashlar.html', context)
-    else:
-        context['language'] = 'uz'
-        return render(request, '404.html', context)
-
 def ilmiy_faoliyat(request, language='uz'):
     categories = Category.objects.all()
     context = {
@@ -145,13 +105,13 @@ def ilmiy_faoliyat(request, language='uz'):
         context['language'] = 'uz'
         return render(request, '404.html', context)
 
-def kafedralar(request, language='uz'):
+
+def tuzilma(request, language='uz'):
     categories = Category.objects.all()
     context = {
             'categories': categories,
             'language': 'uz',
         }
-    
     context['request'] = request
     context['language'] = language
     path = request.get_full_path()
@@ -160,54 +120,12 @@ def kafedralar(request, language='uz'):
     path = path.rstrip('/')
     context['path'] = path
     if language in ['ru', 'en', 'uz']:
-        return render(request, 'frontend/kafedralar.html', context)
+        return render(request, 'frontend/tuzilma.html', context)
     else:
         context['language'] = 'uz'
         return render(request, '404.html', context)
 
-def fakultetlar(request, language='uz'):
-    categories = Category.objects.all()
-    context = {
-            'categories': categories,
-            'language': 'uz',
-        }
-    employees = [Employee.objects.get(id=i) for i in [18, 21, 27, 30, 29, 28, 19]]
-    context['employees'] = employees
-    context['request'] = request
-    context['language'] = language
-    path = request.get_full_path()
-    if path.split('/')[1] in ['ru', 'uz', 'en']:
-        path = path[3:]
-    path = path.rstrip('/')
-    context['path'] = path
-    if language in ['ru', 'en', 'uz']:
-        return render(request, 'frontend/fakultetlar.html', context)
-    else:
-        context['language'] = 'uz'
-        return render(request, '404.html', context)
-
-def markazlar_va_bolimlar(request, language='uz'):
-    categories = Category.objects.all()
-    context = {
-            'categories': categories,
-            'language': 'uz',
-        }
-    tuzilma = Category.objects.get(name='Tuzilma')
-    context['tuzilma'] = tuzilma
-    context['request'] = request
-    context['language'] = language
-    path = request.get_full_path()
-    if path.split('/')[1] in ['ru', 'uz', 'en']:
-        path = path[3:]
-    path = path.rstrip('/')
-    context['path'] = path
-    if language in ['ru', 'en', 'uz']:
-        return render(request, 'frontend/markazlar_va_bolimlar.html', context)
-    else:
-        context['language'] = 'uz'
-        return render(request, '404.html', context)
-
-def markazlar_va_bolimlar_teg(request, language='uz', tag='-'):
+def tuzilma_teg(request, language='uz', tag='-'):
     if tag not in EMPLOYEE_TAG.keys():
         return render(request, '404.html', context)
     categories = Category.objects.all()
@@ -225,7 +143,7 @@ def markazlar_va_bolimlar_teg(request, language='uz', tag='-'):
     path = path.rstrip('/')
     context['path'] = path
     if language in ['ru', 'en', 'uz']:
-        return render(request, f'frontend/{tag}.html', context)
+        return render(request, f'frontend/tuzilma/{tag}.html', context)
     else:
         context['language'] = 'uz'
         return render(request, '404.html', context)

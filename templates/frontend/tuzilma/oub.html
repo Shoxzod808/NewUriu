@@ -1,17 +1,17 @@
-{% extends "./base.html" %}
+{% extends "./../base.html" %}
 {% load static %}
 {% load my_tags %}
 
-{% block title %}{% call_get_text "FAKULTET-1" language True%}{% endblock %}
+{% block title %}{% call_get_text "O'quv-uslubiy boshqarma" language True%}{% endblock %}
 
 {% block body %}
 
-{% include "./header.html" %}
+{% include "./../header.html" %}
 <section class="section section-xl bg-default">
     <div class="container">
-      <h2 class="fw-bold">{% call_get_text "FAKULTET-1" language True%}</h2>
+      <h2 class="fw-bold">{% call_get_text "O'quv-uslubiy boshqarma" language True%}</h2>
       <hr class="divider bg-madison">
-      <h5>{% call_get_text "dekan" language True%}</h5>
+      <h5>{% call_get_text "OUB INFO" language False%}</h5>
       <div class="row row-30 text-lg-start offset-top-60">
         {% for employee in employees %}
           <div class="col-md-6 col-lg-3">
@@ -45,7 +45,7 @@
       </div>
     </div>
   </section>
-{% include "./footer.html" %}
+{% include "./../footer.html" %}
 
 <!-- Java script-->
 <script src="{% static 'js/core.min.js' %}"></script>
