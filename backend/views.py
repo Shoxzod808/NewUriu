@@ -100,11 +100,50 @@ def ilmiy_faoliyat(request, language='uz'):
     path = path.rstrip('/')
     context['path'] = path
     if language in ['ru', 'en', 'uz']:
-        return render(request, 'frontend/ilmiy_faoliyat.html', context)
+        return render(request, 'frontend/ilmiy_faoliyat/ilmiy_faoliyat.html', context)
     else:
         context['language'] = 'uz'
         return render(request, '404.html', context)
 
+def ilmiy_tex_kengash(request, language='uz'):
+    categories = Category.objects.all()
+    context = {
+            'categories': categories,
+            'language': 'uz',
+        }
+
+    context['request'] = request
+    context['language'] = language
+    path = request.get_full_path()
+    if path.split('/')[1] in ['ru', 'uz', 'en']:
+        path = path[3:]
+    path = path.rstrip('/')
+    context['path'] = path
+    if language in ['ru', 'en', 'uz']:
+        return render(request, 'frontend/ilmiy_faoliyat/ilmiy_faoliyat.html', context)
+    else:
+        context['language'] = 'uz'
+        return render(request, '404.html', context)
+
+def konferensiya(request, language='uz'):
+    categories = Category.objects.all()
+    context = {
+            'categories': categories,
+            'language': 'uz',
+        }
+
+    context['request'] = request
+    context['language'] = language
+    path = request.get_full_path()
+    if path.split('/')[1] in ['ru', 'uz', 'en']:
+        path = path[3:]
+    path = path.rstrip('/')
+    context['path'] = path
+    if language in ['ru', 'en', 'uz']:
+        return render(request, 'frontend/ilmiy_faoliyat/ilmiy_faoliyat.html', context)
+    else:
+        context['language'] = 'uz'
+        return render(request, '404.html', context)
 
 def tuzilma(request, language='uz'):
     categories = Category.objects.all()

@@ -34,7 +34,9 @@ urlpatterns = [
     path("<str:language>/tuzilma/", views.tuzilma, name="tuzilma"),
     path("<str:language>/tuzilma/<str:tag>", views.tuzilma_teg, name="tuzilma_teg"),
     path("<str:language>/rektorat/", views.rektorat, name="rektorat"),
-    path("<str:language>/ilmiy_faoliyat/", views.ilmiy_faoliyat, name="ilmiy_faoliyat"),
+    path("<str:language>/ilmiy_hayot/ilmiy_faoliyat/", views.ilmiy_faoliyat, name="ilmiy_faoliyat"),
+    path("<str:language>/ilmiy_hayot/konferensiya/", views.konferensiya, name="konferensiya"),
+    path("<str:language>/ilmiy_hayot/ilmiy_faoliyat/", views.ilmiy_tex_kengash, name="ilmiy_tex_kengash"),
     path("<str:language>/qabul/", views.qabul, name="qabul"),
     
 ]
