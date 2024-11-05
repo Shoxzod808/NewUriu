@@ -6,6 +6,7 @@ from django.http import JsonResponse
 from django.core.paginator import Paginator
 from .forms import QabulForm, ContactForm
 from django.contrib.auth.decorators import login_required
+from .utils import get_text
 #from .replace_tiems_in_word import replace_text_in_docx
 
 #from .replace_tiems_in_word import replace_text_in_docx_ariza
@@ -100,7 +101,9 @@ def ilmiy_faoliyat(request, language='uz'):
     path = path.rstrip('/')
     context['path'] = path
     if language in ['ru', 'en', 'uz']:
-        return render(request, 'frontend/ilmiy_faoliyat/ilmiy_faoliyat.html', context)
+        text = get_text("Ilmiy faoliyat", language, False)
+        context['text'] = text
+        return render(request, 'frontend/ilmiy_hayot/ilmiy_faoliyat.html', context)
     else:
         context['language'] = 'uz'
         return render(request, '404.html', context)
@@ -120,7 +123,9 @@ def ilmiy_tex_kengash(request, language='uz'):
     path = path.rstrip('/')
     context['path'] = path
     if language in ['ru', 'en', 'uz']:
-        return render(request, 'frontend/ilmiy_faoliyat/ilmiy_faoliyat.html', context)
+        text = get_text("ilmiy tex kengash", language, False)
+        context['text'] = text
+        return render(request, 'frontend/ilmiy_hayot/ilmiy_tex_kengash.html', context)
     else:
         context['language'] = 'uz'
         return render(request, '404.html', context)
@@ -131,7 +136,8 @@ def konferensiya(request, language='uz'):
             'categories': categories,
             'language': 'uz',
         }
-
+    news = News.objects.filter(id__in=[20])
+    context['news'] = news
     context['request'] = request
     context['language'] = language
     path = request.get_full_path()
@@ -140,7 +146,7 @@ def konferensiya(request, language='uz'):
     path = path.rstrip('/')
     context['path'] = path
     if language in ['ru', 'en', 'uz']:
-        return render(request, 'frontend/ilmiy_faoliyat/ilmiy_faoliyat.html', context)
+        return render(request, 'frontend/ilmiy_hayot/konferensiya.html', context)
     else:
         context['language'] = 'uz'
         return render(request, '404.html', context)

@@ -1,0 +1,24 @@
+{% extends "./../base.html" %}
+{% load static %}
+{% load my_tags %}
+
+{% block title %}{% call_get_text "ilmiy tex kengash" language True%}{% endblock %}
+
+{% block body %}
+{% include "./../header.html" %}
+<section class="section section-xl bg-catskill">
+    <div class="container" >
+        <div class="offset-top-30"><a class="btn btn-icon btn-icon-right button-default"  href="/media/ilmiy_hayot/Ilmiy-texnikaviy kengash a'zolari.pdf"><span class="mdi mdi-file"></span><span>Ilmiy-texnikaviy kengash a'zolari</span></a></div>
+        <div class="offset-top-30"><a class="btn btn-icon btn-icon-right button-default" href="/media/ilmiy_hayot/Ilmiy-texnikaviy kengash nizomi.PDF"><span class="mdi mdi-file"></span><span>Ilmiy-texnikaviy kengash nizomi</span></a></div>
+        <div class="offset-top-30"><a class="btn btn-icon btn-icon-right button-default" href="/media/ilmiy_hayot/ITK ni tashkil etishning asosiy maqsadi.docx"><span class="mdi mdi-file"></span><span >ITK ni tashkil etishning asosiy maqsadi</span></a></div>
+
+    </div>
+</section>
+
+
+{% include "./../footer.html" %}
+
+
+<script src="{% static 'js/core.min.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock %}

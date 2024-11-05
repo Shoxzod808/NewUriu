@@ -50,6 +50,7 @@ class GalleryForNewsInline(admin.TabularInline):
     extra = 1
 
 class NewsAdmin(admin.ModelAdmin):
+    list_display = ['id', 'title_uz']
     inlines = [GalleryForNewsInline]
     filter_horizontal = ('tags',)
 

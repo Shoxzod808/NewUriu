@@ -7,8 +7,10 @@
 {% block body %}
 {% include "./../header.html" %}
 <section class="section section-xl bg-catskill">
-    <div class="container">
-        <h5 style="text-align: justify;">{% call_get_text "Ilmiy faoliyat" language False%}</h5>
+    <div class="container" style="text-align: left; font-size: 16px; color: black;">
+        <h2 class="fw-bold">{% call_get_text "Ilmiy faoliyat" language True%}</h2>
+        {{ text|safe }}
+
     </div>
 </section>
 

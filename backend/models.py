@@ -220,9 +220,9 @@ class News(models.Model):
 
 class Template(models.Model):
     title = models.CharField(max_length=255, unique=True, verbose_name='Ключь')
-    body_en = models.TextField(verbose_name='English')
-    body_ru = models.TextField(verbose_name='Русский')
-    body_uz = models.TextField(verbose_name='Uzbekcha')
+    body_en = RichTextField(verbose_name='English')
+    body_ru = RichTextField(verbose_name='Русский')
+    body_uz = RichTextField(verbose_name='Uzbekcha')
 
     class Meta:
         verbose_name = 'Шаблон'
